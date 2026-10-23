@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAPPY BIRTHDAY, LEGEND!!!</title>
+<style>
+  :root {
+    --ink: #24152d;
+    --pink: #ff70b7;
+    --yellow: #ffe66d;
+    --blue: #82e6ff;
+    --cream: #fff8ed;
+    --purple: #9b7bff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background:
+      radial-gradient(circle at 10% 15%, #ff9bd0 0 7%, transparent 7.5%),
+      radial-gradient(circle at 90% 28%, #9defff 0 8%, transparent 8.5%),
+      radial-gradient(circle at 20% 75%, #ffe66d 0 6%, transparent 6.5%),
+      #bda7ff;
+    overflow-x: hidden;
+  }
+  button { font: inherit; cursor: pointer; }
+  .ticker {
+    background: var(--ink); color: var(--yellow); padding: 10px 0;
+    font-weight: 900; letter-spacing: 2px; white-space: nowrap; overflow: hidden;
+  }
+  .ticker span { display: inline-block; animation: marquee 19s linear infinite; }
+  @keyframes marquee { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+  .wrap { width: min(1000px, 92%); margin: 0 auto; }
+  header { padding: 34px 0 18px; text-align: center; }
+  .sticker {
+    display: inline-block; background: var(--yellow); border: 3px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--ink); padding: 9px 15px; font-weight: 900;
+    transform: rotate(-4deg); text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(3rem, 10vw, 7.8rem); line-height: .86; margin: 26px 0 18px;
+    letter-spacing: -5px; text-transform: uppercase; font-weight: 1000;
+    text-shadow: 4px 4px 0 var(--pink), 8px 8px 0 var(--ink);
+  }
+  .subtitle { font-size: clamp(1rem, 2.5vw, 1.35rem); font-weight: 800; max-width: 620px; margin: 24px auto; }
+  .hero-card {
+    background: var(--cream); border: 4px solid var(--ink); border-radius: 24px;
+    padding: clamp(20px, 5vw, 42px); box-shadow: 10px 10px 0 var(--ink);
+    transform: rotate(.5deg); position: relative;
+  }
+  .hero-card h2 { font-size: clamp(1.8rem, 5vw, 3.5rem); margin: 0 0 12px; }
+  .hero-card p { font-size: 1.1rem; line-height: 1.65; }
+  .badge { display: inline-block; background: var(--blue); border: 2px solid var(--ink); border-radius: 999px; padding: 7px 12px; font-size: .82rem; font-weight: 900; margin: 4px; }
+  .btn {
+    border: 3px solid var(--ink); border-radius: 14px; padding: 13px 18px;
+    background: var(--pink); color: var(--ink); font-weight: 1000;
+    box-shadow: 4px 4px 0 var(--ink); transition: transform .12s, box-shadow .12s;
+  }
+  .btn:hover { transform: translate(2px, 2px) rotate(-1deg); box-shadow: 2px 2px 0 var(--ink); }
+  .btn.yellow { background: var(--yellow); }
+  .btn.blue { background: var(--blue); }
+  section { padding: 35px 0; }
+  .section-title { font-size: clamp(2rem, 6vw, 3.7rem); line-height: 1; text-transform: uppercase; margin: 0 0 22px; text-shadow: 3px 3px 0 var(--yellow); }
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+  .panel {
+    border: 3px solid var(--ink); border-radius: 18px; padding: 22px;
+    background: var(--cream); box-shadow: 6px 6px 0 var(--ink);
+  }
+  .panel:nth-child(2) { background: var(--yellow); transform: rotate(1deg); }
+  .panel:nth-child(3) { background: var(--blue); transform: rotate(-1deg); }
+  .panel:nth-child(4) { background: var(--pink); }
+  .panel h3 { font-size: 1.35rem; margin: 0 0 10px; }
+  .panel p { line-height: 1.55; }
+  .reveal { display: none; margin-top: 14px; padding: 14px; background: white; border: 2px dashed var(--ink); border-radius: 12px; font-weight: 800; line-height: 1.5; }
+  .reveal.show { display: block; animation: pop .25s ease-out; }
+  @keyframes pop { from { opacity: 0; transform: scale(.88); } to { opacity: 1; transform: scale(1); } }
+  .big-note { background: var(--ink); color: var(--cream); border: 4px solid var(--yellow); border-radius: 24px; padding: clamp(22px, 5vw, 40px); transform: rotate(-.5deg); }
+  .big-note h2 { color: var(--yellow); font-size: clamp(2rem, 5vw, 3.4rem); margin-top: 0; }
+  .big-note p { line-height: 1.8; font-size: 1.08rem; }
+  .gift { text-align: center; background: var(--pink); border: 4px solid var(--ink); border-radius: 24px; padding: 30px 18px; box-shadow: 8px 8px 0 var(--ink); }
+  .gift-emoji { font-size: 5rem; display: block; animation: wobble 1.4s ease-in-out infinite; }
+  @keyframes wobble { 0%,100% { transform: rotate(-7deg) scale(1); } 50% { transform: rotate(7deg) scale(1.08); } }
+  .gift-message { display: none; margin: 20px auto 0; max-width: 580px; padding: 18px; background: var(--cream); border: 3px solid var(--ink); border-radius: 15px; font-weight: 800; line-height: 1.7; }
+  .gift-message.show { display: block; animation: pop .35s ease-out; }
+  .fortune { font-size: 1.25rem; font-weight: 900; min-height: 3.2em; }
+  footer { text-align: center; padding: 30px 0 48px; font-weight: 900; }
+  .tiny { font-size: .85rem; opacity: .85; }
+  .confetti { position: fixed; top: -20px; z-index: 99; pointer-events: none; animation: fall linear forwards; }
+  @keyframes fall { to { transform: translateY(110vh) rotate(900deg); opacity: .9; } }
+  @media (max-width: 650px) {
+    .grid { grid-template-columns: 1fr; }
+    h1 { letter-spacing: -2px; }
+    .hero-card { transform: none; }
+    .panel:nth-child(2), .panel:nth-child(3) { transform: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="ticker"><span>🚨 BIRTHDAY ALERT!!!! 🚨 THE INTERNET'S MOST ICONIC DIVA HAS LEVELLED UP!! 🚨 &nbsp; </span></div>
+  <header class="wrap">
+    <span class="sticker">officially your day!</span>
+    <h1>HAPPY<br>BIRTHDAY!!!</h1>
+    <p class="subtitle">To <span id="friendName">MY FAVOURITE INTERNET ERUMA!</span> — a certified iconic menace  🎉</p>
+    <span class="badge">✨ main character energy</span>
+    <span class="badge">🧠 2 braincells</span>
+    <span class="badge">💅 chronically iconic</span>
+  </header>
+
+  <main class="wrap">
+    <div class="hero-card">
+      <h2>BREAKING NEWS!! 🗞️</h2>
+      <p>Local menace gets officially older today. Sources confirm unfortunately, absolutely no character development has occurred. Maturity is missing but thankfully commonsense is still on support.Friends remain concerned.</p>
+      <p><strong>Today's mission:</strong> accept compliments like the celebrity you are, eat enough to make u like a drum, and remember that you are genuinely one of my favourite people on this entire chaotic internet! okayyyyy</p>
+      <button class="btn yellow" onclick="partyTime()">PRESS FOR INSTANT CHAOS! 💥</button>
+      <p class="tiny">Warning: may cause confetti, and uncontrollable smiling.[click many times as you like]</p>
+    </div>
+
+    <section>
+      <h2 class="section-title">A totally serious report</h2>
+      <div class="grid">
+        <article class="panel">
+          <h3>🏆 Award unlocked</h3>
+          <p>Congratulations! You have won the prestigious award for being my friend. No doubts. The judge is impressed.</p>
+          <button class="btn" onclick="reveal('award')">Accept award</button>
+          <div class="reveal" id="award">🏅 Awarded: DRAMATIC DIVA!</div>
+        </article>
+        <article class="panel">
+          <h3>📊 Friendship statistics</h3>
+          <p>A highly scientific, definitely friends-reviewed assessment of our friendship.</p>
+          <button class="btn blue" onclick="reveal('stats')">Show the data</button>
+          <div class="reveal" id="stats">Memes shared: yes. Unhinged conversations: many. Normal behaviour: under investigation. Friendship rating: 100000/10.</div>
+        </article>
+        <article class="panel">
+          <h3>🔮 Birthday prophecy</h3>
+          <p>Your future has been reviewed by one suspiciously sparkly crystal ball.</p>
+          <button class="btn yellow" onclick="fortune()">Reveal your fate</button>
+          <div class="reveal show" id="fortuneBox"><span class="fortune" id="fortuneText">Your destiny is loading... press the button!</span></div>
+          <p class="tiny">Warning: Stay in touch with Anya for more good luck!!</p>
+        </article>
+        <article class="panel">
+          <h3>🫵 A very important reminder!!</h3>
+          <p>In case your brain decides to be a dramatic little potato today.</p>
+          <button class="btn" onclick="reveal('reminder')">Open reminder</button>
+          <div class="reveal" id="reminder">You are loved. You matter. You make ordinary days funnier and better. Now go enjoy your day!! 💗</div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="big-note">
+        <h2>Okay but seriously… 💌</h2>
+        <p>Jokes aside, I'm really glad the internet let our paths cross. It's kind of wild that someone can live far away and still become such a special part of your day. Thank you for the laughs, the random conversations, the chaos, and all the little moments that make our friendship ours.</p>
+        <p>I hope this next trip around the sun brings you the kind of happiness that sneaks up on you, people who appreciate your weirdness, reasons to be excited about tomorrow, and so many good memories that your camera roll becomes a public safety hazard.</p>
+        <p><strong>Happy birthday, bestie. The world got lucky when it got you. 🫶</strong></p>
+        <p class="tiny">P.S. This website was assembled with love, questionable levels of enthusiasm, and absolutely no adult supervision.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="gift">
+        <span class="gift-emoji" aria-hidden="true">🎁</span>
+        <h2 class="section-title">ONE LAST SURPRISE</h2>
+        <p>There's a tiny gift inside. No refunds. No exchanges.</p>
+        <button class="btn yellow" onclick="openGift()">UNWRAP YOUR GIFT 🎀</button>
+        <div class="gift-message" id="giftMessage">
+          🎉 SURPRISEEEE! 🎉<br><br>
+          Your gift is a lifetime subscription to me cheering you on, sending you ridiculous things, and reminding you that you deserve good things. No expiry date! Extremely limited edition because it's specifically for YOU DANI! 💗
+          <br><br><strong>Now close your eyes make a wish and go have the best birthday ever!</strong>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">
+    MADE WITH 💗, CHAOS & QUESTIONABLE SLEEP SCHEDULES(literally!)
+    <p class="tiny">A little corner of the internet, made just for you&lt;3</p>
+  </footer>
+
+<script>
+  const fortunes = [
+    "You will receive a message that makes you laugh-snort. It is foretold. 🔮",
+    "Your next snack will be elite. The universe has spoken. 🍰",
+    "You will slay a task you have been avoiding. Main character behaviour. 👑",
+    "Someone thinks you are very cool. Plot twist: it's me. 💗",
+    "Your future contains excellent memes and suspiciously good luck. ✨",
+    "You are about to enter your ridiculously iconic era. Prepare accordingly. 💅"
+  ];
+  function reveal(id) {
+    const el = document.getElementById(id);
+    el.classList.toggle('show');
+    if (el.classList.contains('show')) confetti(18);
+  }
+  function fortune() {
+    document.getElementById('fortuneText').textContent = fortunes[Math.floor(Math.random() * fortunes.length)];
+    document.getElementById('fortuneBox').classList.add('show');
+    confetti(12);
+  }
+  function openGift() {
+    document.getElementById('giftMessage').classList.toggle('show');
+    confetti(65);
+  }
+  function partyTime() {
+    confetti(100);
+    const button = document.querySelector('.hero-card .btn');
+    button.textContent = 'CHAOS ACTIVATED!!! 🪩';
+    setTimeout(() => button.textContent = 'PRESS FOR INSTANT CHAOS 💥', 1800);
+  }
+  function confetti(count) {
+    const colors = ['#ff70b7', '#ffe66d', '#82e6ff', '#9b7bff', '#ffffff'];
+    for (let i = 0; i < count; i++) {
+      const bit = document.createElement('span');
+      bit.className = 'confetti';
+      bit.textContent = ['✦', '♥', '★', '●'][Math.floor(Math.random() * 4)];
+      bit.style.left = Math.random() * 100 + 'vw';
+      bit.style.color = colors[Math.floor(Math.random() * colors.length)];
+      bit.style.fontSize = (12 + Math.random() * 22) + 'px';
+      bit.style.animationDuration = (2 + Math.random() * 3) + 's';
+      document.body.appendChild(bit);
+      setTimeout(() => bit.remove(), 5200);
+    }
+  }
+</script>
+</body>
+  </html>
