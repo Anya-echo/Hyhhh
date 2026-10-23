@@ -96,6 +96,105 @@
     .hero-card { transform: none; }
     .panel:nth-child(2), .panel:nth-child(3) { transform: none; }
   }
+  
+/* ✨ LETTER ANIMATIONS */
+
+.letter-card {
+  animation: letter-arrive .7s cubic-bezier(.2,.8,.2,1) both;
+  transform-origin: top center;
+}
+
+.letter-card:nth-child(1) { animation-delay: .1s; }
+.letter-card:nth-child(2) { animation-delay: .25s; }
+.letter-card:nth-child(3) { animation-delay: .4s; }
+.letter-card:nth-child(4) { animation-delay: .55s; }
+
+@keyframes letter-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(28px) rotate(-2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+/* Smooth letter opening */
+.letter-card[open] {
+  box-shadow: 0 0 0 4px var(--pink), 7px 9px 0 var(--ink);
+}
+
+.letter-card[open] .letter-content {
+  animation: letter-unfold .55s ease-out both;
+}
+
+@keyframes letter-unfold {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ✨ Floating hearts and sparkles */
+.letter-card[open] summary {
+  position: relative;
+}
+
+.letter-card[open] summary::before {
+  content: "✦  ♥  ✧";
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  color: #d94d98;
+  font-size: 1.1rem;
+  pointer-events: none;
+  animation: sparkle-float 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle-float {
+  from {
+    opacity: .35;
+    transform: translateY(3px) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-5px) rotate(8deg);
+  }
+}
+
+/* Reveal the signature last */
+.letter-card[open] .letter-signature {
+  animation: signature-appear .7s ease-out .25s both;
+}
+
+@keyframes signature-appear {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .letter-card,
+  .letter-card[open] .letter-content,
+  .letter-card[open] .letter-signature,
+  .letter-card[open] summary::before {
+    animation: none;
+  }
+}
+
 </style>
 </head>
 <body>
