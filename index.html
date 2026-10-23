@@ -96,6 +96,110 @@
     .hero-card { transform: none; }
     .panel:nth-child(2), .panel:nth-child(3) { transform: none; }
   }
+  
+/* 💌 PRETTY BIRTHDAY LETTER CARDS */
+.letters-section {
+  padding: 40px 0;
+}
+
+.letters-intro {
+  font-weight: 800;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.letters-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.letter-card {
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  padding: 22px;
+  background: var(--cream);
+  box-shadow: 6px 6px 0 var(--ink);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.letter-card:hover {
+  transform: translateY(-5px) rotate(-.5deg);
+  box-shadow: 9px 10px 0 var(--ink);
+}
+
+.letter-card:nth-child(2) {
+  background: var(--yellow);
+}
+
+.letter-card:nth-child(3) {
+  background: var(--blue);
+}
+
+.letter-card:nth-child(4) {
+  background: var(--pink);
+}
+
+.letter-card h3 {
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin: 0 0 12px;
+}
+
+.letter-card p {
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.letter-card .letter-content {
+  display: none;
+  margin-top: 18px;
+  padding: 16px;
+  background: var(--cream);
+  border: 2px dashed var(--ink);
+  border-radius: 12px;
+  white-space: pre-line;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+  animation: pop .3s ease-out;
+}
+
+.letter-card .letter-content.show {
+  display: block;
+}
+
+.letter-signature {
+  text-align: right;
+  font-weight: 900;
+  margin-top: 18px;
+}
+
+.letter-button {
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  padding: 11px 15px;
+  background: var(--pink);
+  color: var(--ink);
+  font-weight: 900;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform .15s, box-shadow .15s;
+}
+
+.letter-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+@media (max-width: 650px) {
+  .letters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .letter-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
 </style>
 </head>
 <body>
@@ -158,6 +262,73 @@
         <p class="tiny">P.S. This website was assembled with love, questionable levels of enthusiasm, and absolutely no adult supervision.</p>
       </div>
     </section>
+
+<section class="letters-section">
+  <h2 class="section-title">LETTERS FOR DANI 💌</h2>
+  <p class="letters-intro">
+    Four letters. Four different personalities.
+    One very loved human. 🤍<br>
+    Open each card to read the full message!
+  </p>
+
+  <div class="letters-grid">
+
+    <article class="letter-card">
+      <h3>📚 A letter for my book bestie</h3>
+      <p>A little birthday love from your book bestieeeeee 💗</p>
+      <button class="letter-button" onclick="reveal('letter1')">
+        READ LETTER 💌
+      </button>
+      <div class="letter-content" id="letter1">Happy Birthday to my book bestieeeeee😘❤️ Dani you were sooo sudden to become my friend, just through a random text asking about the Shatter Me series and now we have come so far and I find it so easy to talk to you about anything and everything. I am glad for all of it and I hope our friendship continues to grow and thrive bbg.... I hope and pray you grow into become the best version of yourself and continue to be the diva u r, slaying and being the cool girl💫😎 Akki love you loads darling and here's to all the years and memories to come... Finally, I too am amazing and you should be be greatful for having me😌 Haha, that'd be a two way street, cuz I am forever thankful for god to sending u in my way👉👈🥰
+        <div class="letter-signature">— xxxx 💋</div>
+      </div>
+    </article>
+
+    <article class="letter-card">
+      <h3>💗 A letter from a loving sister</h3>
+      <p>Love, prayers, and a little sister-in-law chaos 🩷</p>
+      <button class="letter-button" onclick="reveal('letter2')">
+        OPEN MY LETTER 🎀
+      </button>
+      <div class="letter-content" id="letter2">Hi babe its me annika ...your beautiful sis in law 
+I came to know it's your birthday today ...... I am so sorry happy to know the date of our angel's appearance 
+Lots lots of love from this side and from behalf of my brother ....... my wish and pray that in any life you don't have to fake your smile to look happy🙂 ..... and get over the things you show is alright but not ....... may Allah grace you healthy, spiritual life and comfort...... its a wish from a sister for a  sister 😗
+Become rich , hot , crazy bitch 😜 and take care of my nephew 😘
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷
+        <div class="letter-signature">— yyyy 🩷</div>
+      </div>
+    </article>
+
+    <article class="letter-card">
+      <h3>🎂 A letter from your bestie</h3>
+      <p>Warning: extreme bestie energy incoming 😹</p>
+      <button class="letter-button" onclick="reveal('letter3')">
+        OPEN THE LOVE 🎉
+      </button>
+      <div class="letter-content" id="letter3">Heyy bestieeee it's a small note from avaaaaaaa ur bestieeee
+May God bless youh with abundance of happiness lots of courage and confidence 
+May God make your day and life as perfect as youh assumed
+May God make your day wonderful and may you not get older faster😹
+Ohhhhmaaabestieeeee i wannttttt youuuu to beeee Hereeeee withhh meeeeeee (cz I wanna eat cake lol)
+        <div class="letter-signature">— zzzz 🎀</div>
+      </div>
+    </article>
+
+    <article class="letter-card">
+      <h3>🤍 A little letter from afar</h3>
+      <p>A big hug from miles away 🫶🏻</p>
+      <button class="letter-button" onclick="reveal('letter4')">
+        UNFOLD MY LETTER 🤍
+      </button>
+      <div class="letter-content" id="letter4">Happy Birthday, Danielle! 🤍🎂
+Even though we’re miles apart, you hold such a special place in my heart. I’m so grateful to have you in my life, for always supporting me and being someone I can count on. You mean more to me than words can explain, and I hope life gives you all the happiness and love you deserve. I wish I could celebrate this special day with you in person, but until then, sending you the biggest hug from afar. I love you so much, and I’m so lucky to have you. 🫶🏻💗
+        <div class="letter-signature">— wwww 🤍</div>
+      </div>
+    </article>
+
+  </div>
+</section>
 
     <section>
       <div class="gift">
