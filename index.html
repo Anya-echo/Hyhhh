@@ -96,105 +96,6 @@
     .hero-card { transform: none; }
     .panel:nth-child(2), .panel:nth-child(3) { transform: none; }
   }
-  
-/* ✨ LETTER ANIMATIONS */
-
-.letter-card {
-  animation: letter-arrive .7s cubic-bezier(.2,.8,.2,1) both;
-  transform-origin: top center;
-}
-
-.letter-card:nth-child(1) { animation-delay: .1s; }
-.letter-card:nth-child(2) { animation-delay: .25s; }
-.letter-card:nth-child(3) { animation-delay: .4s; }
-.letter-card:nth-child(4) { animation-delay: .55s; }
-
-@keyframes letter-arrive {
-  from {
-    opacity: 0;
-    transform: translateY(28px) rotate(-2deg);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(0);
-  }
-}
-
-/* Smooth letter opening */
-.letter-card[open] {
-  box-shadow: 0 0 0 4px var(--pink), 7px 9px 0 var(--ink);
-}
-
-.letter-card[open] .letter-content {
-  animation: letter-unfold .55s ease-out both;
-}
-
-@keyframes letter-unfold {
-  from {
-    opacity: 0;
-    transform: translateY(-12px);
-    clip-path: inset(0 0 100% 0);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-/* ✨ Floating hearts and sparkles */
-.letter-card[open] summary {
-  position: relative;
-}
-
-.letter-card[open] summary::before {
-  content: "✦  ♥  ✧";
-  position: absolute;
-  right: 15px;
-  top: 5px;
-  color: #d94d98;
-  font-size: 1.1rem;
-  pointer-events: none;
-  animation: sparkle-float 1.2s ease-in-out infinite alternate;
-}
-
-@keyframes sparkle-float {
-  from {
-    opacity: .35;
-    transform: translateY(3px) rotate(-8deg);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(-5px) rotate(8deg);
-  }
-}
-
-/* Reveal the signature last */
-.letter-card[open] .letter-signature {
-  animation: signature-appear .7s ease-out .25s both;
-}
-
-@keyframes signature-appear {
-  from {
-    opacity: 0;
-    transform: translateX(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .letter-card,
-  .letter-card[open] .letter-content,
-  .letter-card[open] .letter-signature,
-  .letter-card[open] summary::before {
-    animation: none;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -257,67 +158,6 @@
         <p class="tiny">P.S. This website was assembled with love, questionable levels of enthusiasm, and absolutely no adult supervision.</p>
       </div>
     </section>
-
-<section class="letters-section">
-  <h2 class="section-title">LETTERS FOR DANI 💌</h2>
-
-  <p class="letters-intro">
-    Four letters. Four different personalities.
-    One very loved human. 🤍
-    <br>
-    Tap each letter to open it!
-  </p>
-
-  <div class="letters-grid">
-
-    <!-- LETTER 1 -->
-    <details class="letter-card">
-      <summary>📚 A letter for my book bestie</summary>
-      <div class="letter-content">Happy Birthday to my book bestieeeeee😘❤️ Dani you were sooo sudden to become my friend, just through a random text asking about the Shatter Me series and now we have come so far and I find it so easy to talk to you about anything and everything. I am glad for all of it and I hope our friendship continues to grow and thrive bbg.... I hope and pray you grow into become the best version of yourself and continue to be the diva u r, slaying and being the cool girl💫😎 Akki love you loads darling and here's to all the years and memories to come... Finally, I too am amazing and you should be be greatful for having me😌 Haha, that'd be a two way street, cuz I am forever thankful for god to sending u in my way👉👈🥰
-
-        <div class="letter-signature">— xxxx 💋</div>
-      </div>
-    </details>
-
-    <!-- LETTER 2 -->
-    <details class="letter-card">
-      <summary>💗 A letter from a loving sister</summary>
-      <div class="letter-content">Hi babe its me annika ...your beautiful sis in law 
-I came to know it's your birthday today ...... I am so sorry happy to know the date of our angel's appearance 
-Lots lots of love from this side and from behalf of my brother ....... my wish and pray that in any life you don't have to fake your smile to look happy🙂 ..... and get over the things you show is alright but not ....... may Allah grace you healthy, spiritual life and comfort...... its a wish from a sister for a  sister 😗
-Become rich , hot , crazy bitch 😜 and take care of my nephew 😘
-❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
-🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷🩷
-
-        <div class="letter-signature">— yyyy 🩷</div>
-      </div>
-    </details>
-
-    <!-- LETTER 3 -->
-    <details class="letter-card">
-      <summary>🎂 A letter from your bestie</summary>
-      <div class="letter-content">Heyy bestieeee it's a small note from avaaaaaaa ur bestieeee
-May God bless youh with abundance of happiness lots of courage and confidence 
-May God make your day and life as perfect as youh assumed
-May God make your day wonderful and may you not get older faster😹
-Ohhhhmaaabestieeeee i wannttttt youuuu to beeee Hereeeee withhh meeeeeee (cz I wanna eat cake lol)
-
-        <div class="letter-signature">— zzzz 🎀</div>
-      </div>
-    </details>
-
-    <!-- LETTER 4 -->
-    <details class="letter-card">
-      <summary>🤍 A little letter from afar</summary>
-      <div class="letter-content">Happy Birthday, Danielle! 🤍🎂
-Even though we’re miles apart, you hold such a special place in my heart. I’m so grateful to have you in my life, for always supporting me and being someone I can count on. You mean more to me than words can explain, and I hope life gives you all the happiness and love you deserve. I wish I could celebrate this special day with you in person, but until then, sending you the biggest hug from afar. I love you so much, and I’m so lucky to have you. 🫶🏻💗
-
-        <div class="letter-signature">— wwww 🤍</div>
-      </div>
-    </details>
-
-  </div>
-</section>
 
     <section>
       <div class="gift">
@@ -383,4 +223,4 @@ Even though we’re miles apart, you hold such a special place in my heart. I’
   }
 </script>
 </body>
-  </html>
+</html>
